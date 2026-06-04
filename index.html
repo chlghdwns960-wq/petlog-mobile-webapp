@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog | 반려생활기록앱</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려생활 기록 앱 스플래시 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 스플래시 화면">
+      <!-- 배경 장식 효과 -->
+      <div class="splash-effects" aria-hidden="true">
+        <span class="paw-effect paw-effect-1">🐾</span>
+        <span class="paw-effect paw-effect-2">🐾</span>
+        <span class="spark-effect spark-effect-1"></span>
+        <span class="spark-effect spark-effect-2"></span>
+        <span class="shine-effect"></span>
+      </div>
+
+      <!-- Section 1: 로고 영역 -->
+      <section class="splash-section splash-logo-section" aria-label="앱 로고">
+        <h1 class="blind">PetLog</h1>
+
+        <img src="./images/01/logo.png" alt="PetLog 로고" class="splash-logo" />
+      </section>
+
+      <!-- Section 2: 일러스트 영역 -->
+      <section
+        class="splash-section splash-visual-section"
+        aria-label="반려생활 일러스트"
+      >
+        <img
+          src="./images/01/img.png"
+          alt="반려동물과 함께하는 PetLog 일러스트"
+          class="splash-character"
+        />
+      </section>
+
+      <!-- Section 3: 안내 문구 영역 -->
+      <section class="splash-section splash-copy-section" aria-label="앱 소개">
+        <p class="splash-copy">사진부터 루틴까지, 반려생활을 한 곳에</p>
+      </section>
+
+      <noscript>
+        <p class="noscript-message">
+          JavaScript가 꺼져 있습니다. 2초 후 자동 이동이 작동하지 않습니다.
+        </p>
+      </noscript>
+    </main>
+
+    <script src="./script/script.js"></script>
+  </body>
+</html>

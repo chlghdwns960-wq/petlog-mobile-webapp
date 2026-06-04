@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog Onboarding</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려생활 기록 앱의 온보딩 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style2.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 온보딩 화면">
+      <!-- Section 1: 온보딩 이미지 영역 -->
+      <section
+        class="onboarding-section visual-section"
+        aria-label="온보딩 이미지"
+      >
+        <div class="slide-track" id="slideTrack">
+          <article class="slide is-active" aria-label="첫 번째 온보딩">
+            <img
+              src="./images/02/img1.png"
+              alt="반려동물 사진을 정리하는 일러스트"
+              class="onboarding-image"
+            />
+          </article>
+
+          <article class="slide" aria-label="두 번째 온보딩">
+            <img
+              src="./images/02/img2.png"
+              alt="반려동물 식사와 산책을 기록하는 일러스트"
+              class="onboarding-image"
+            />
+          </article>
+
+          <article class="slide" aria-label="세 번째 온보딩">
+            <img
+              src="./images/02/img3.png"
+              alt="반려동물 병원 정보와 일정을 관리하는 일러스트"
+              class="onboarding-image"
+            />
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 2: 온보딩 텍스트 영역 -->
+      <section class="onboarding-section text-section" aria-label="온보딩 설명">
+        <div class="text-slide is-active">
+          <h1 class="onboarding-title">
+            갤러리 속 우리 아이 사진,<br />
+            이제 <strong>쉽게 정리</strong>해요
+          </h1>
+          <p class="onboarding-desc">
+            반려동물별로 사진을 모아 보고<br />
+            소중한 순간을 한눈에 관리할 수 있어요.
+          </p>
+        </div>
+
+        <div class="text-slide">
+          <h1 class="onboarding-title">
+            식사와 산책, 하루 루틴을<br />
+            <strong>간편하게</strong> 기록해요
+          </h1>
+          <p class="onboarding-desc">
+            식사량, 물 섭취, 산책, 건강 메모까지<br />
+            매일의 관리 기록을 한 곳에 남길 수 있어요.
+          </p>
+        </div>
+
+        <div class="text-slide">
+          <h1 class="onboarding-title">
+            병원 정보와 중요한 일정도<br />
+            <strong>놓치지</strong> 않아요
+          </h1>
+          <p class="onboarding-desc">
+            주변 동물병원을 빠르게 찾고,<br />
+            예방접종과 약 복용 일정도 한 번에 확인해요.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: 컨트롤 영역 -->
+      <section
+        class="onboarding-section control-section"
+        aria-label="온보딩 조작"
+      >
+        <div
+          class="pagination"
+          role="tablist"
+          aria-label="온보딩 슬라이드 선택"
+        >
+          <button
+            type="button"
+            class="dot is-active"
+            aria-label="첫 번째 슬라이드"
+            data-index="0"
+          ></button>
+          <button
+            type="button"
+            class="dot"
+            aria-label="두 번째 슬라이드"
+            data-index="1"
+          ></button>
+          <button
+            type="button"
+            class="dot"
+            aria-label="세 번째 슬라이드"
+            data-index="2"
+          ></button>
+        </div>
+
+        <button type="button" class="next-button" id="nextButton">다음</button>
+
+        <a
+          href="./index3.html"
+          class="login-link"
+          aria-label="로그인 화면으로 이동"
+        >
+          로그인 화면으로 이동
+        </a>
+      </section>
+
+      <noscript>
+        <p class="noscript-message">
+          JavaScript가 꺼져 있습니다.
+          <a href="./index3.html">로그인 화면으로 이동</a>해주세요.
+        </p>
+      </noscript>
+    </main>
+
+    <script src="./script/script2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 기록 히스토리</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려동물 기록 히스토리와 통계 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style8.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 기록 히스토리 화면">
+      <!-- Header: 뒤로가기 / 제목 / 달력 -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index7.html"
+            class="back-button"
+            aria-label="기록 상세 화면으로 돌아가기"
+          >
+            <!-- 뒤로가기 아이콘 이미지 수정 위치 -->
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">기록 히스토리</h1>
+        </div>
+
+        <!-- 달력 아이콘 클릭 시 Step9로 이동 -->
+        <a
+          href="./index9.html"
+          class="calendar-button"
+          aria-label="다음 화면으로 이동"
+        >
+          <!-- 달력 아이콘 이미지 수정 위치 -->
+          <img src="./images/08/icon.png" alt="" aria-hidden="true" />
+        </a>
+      </header>
+
+      <!-- Section 1: 안내 문구 / 기간 필터 -->
+      <section
+        class="history-section intro-section"
+        aria-label="기록 히스토리 안내"
+      >
+        <p class="intro-text">우리 아이의 최근 기록과 통계를 확인해보세요</p>
+
+        <div class="period-tabs" role="group" aria-label="기록 기간 선택">
+          <button
+            type="button"
+            class="period-button is-active"
+            aria-pressed="true"
+          >
+            1주
+          </button>
+
+          <button type="button" class="period-button" aria-pressed="false">
+            1개월
+          </button>
+
+          <button type="button" class="period-button" aria-pressed="false">
+            3개월
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 2: 통계 카드 -->
+      <section class="history-section stat-section" aria-label="기록 통계 카드">
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-top">
+              <!-- 산책 이미지 수정 위치 -->
+              <img
+                src="./images/05/img4.png"
+                alt=""
+                class="stat-icon"
+                aria-hidden="true"
+              />
+
+              <h2 class="stat-title">산책</h2>
+            </div>
+
+            <strong class="stat-count">12회</strong>
+
+            <p class="stat-desc">지난주보다 <span>3회</span> 많아요</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <!-- 배변 이미지 수정 위치 -->
+              <img
+                src="./images/05/img5.png"
+                alt=""
+                class="stat-icon"
+                aria-hidden="true"
+              />
+
+              <h2 class="stat-title">배변</h2>
+            </div>
+
+            <strong class="stat-count">18회</strong>
+
+            <p class="stat-desc">정상 기록이 대부분이에요</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <!-- 약 이미지 수정 위치 -->
+              <img
+                src="./images/08/img1.png"
+                alt=""
+                class="stat-icon"
+                aria-hidden="true"
+              />
+
+              <h2 class="stat-title">약</h2>
+            </div>
+
+            <strong class="stat-count">7회</strong>
+
+            <p class="stat-desc">7일 연속 기록 중</p>
+          </article>
+
+          <article class="stat-card">
+            <div class="stat-top">
+              <!-- 메모 이미지 수정 위치 -->
+              <img
+                src="./images/08/img2.png"
+                alt=""
+                class="stat-icon"
+                aria-hidden="true"
+              />
+
+              <h2 class="stat-title">메모</h2>
+            </div>
+
+            <strong class="stat-count">5회</strong>
+
+            <p class="stat-desc">최근 건강 메모가 있어요</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 3: 산책 기록 패턴 -->
+      <section
+        class="history-section chart-section"
+        aria-labelledby="chartTitle"
+      >
+        <article class="chart-card">
+          <h2 id="chartTitle" class="chart-title">산책 기록 패턴</h2>
+          <p class="chart-desc">요일별 산책 기록을 확인해보세요</p>
+
+          <div class="chart-area" aria-label="요일별 산책 기록 막대 그래프">
+            <div class="chart-grid-line line-100">
+              <span>100</span>
+            </div>
+
+            <div class="chart-grid-line line-80">
+              <span>80</span>
+            </div>
+
+            <div class="chart-grid-line line-60">
+              <span>60</span>
+            </div>
+
+            <div class="chart-grid-line line-40">
+              <span>40</span>
+            </div>
+
+            <div class="chart-grid-line line-20">
+              <span>20</span>
+            </div>
+
+            <div class="bar-list">
+              <div class="bar-item">
+                <span class="bar" style="height: 30px"></span>
+                <span class="day">월</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 52px"></span>
+                <span class="day">화</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 80px"></span>
+                <span class="day">수</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 110px"></span>
+                <span class="day">목</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 56px"></span>
+                <span class="day">금</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 70px"></span>
+                <span class="day">토</span>
+              </div>
+
+              <div class="bar-item">
+                <span class="bar" style="height: 64px"></span>
+                <span class="day">일</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a
+            href="./index7.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item"
+            aria-label="병원 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script8.js"></script>
+  </body>
+</html>

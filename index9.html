@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>PetLog 일정 목록</title>
+
+    <meta name="description" content="PetLog 반려동물 일정 목록 화면입니다." />
+
+    <link rel="stylesheet" href="./css/style9.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 일정 목록 화면">
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index8.html"
+            class="back-button"
+            aria-label="기록 히스토리로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">일정 목록</h1>
+        </div>
+      </header>
+
+      <!-- Section 1: 안내 / 요약 -->
+      <section class="schedule-section summary-section" aria-label="일정 요약">
+        <p class="page-desc">다가오는 일정을 한눈에 확인해보세요</p>
+
+        <div class="summary-cards">
+          <article class="summary-card is-active">
+            <div class="summary-icon" aria-hidden="true">
+              <!-- 오늘 일정 아이콘 수정 위치 -->
+              <img src="./images/09/icon1.png" alt="" />
+            </div>
+
+            <p class="summary-label">
+              오늘 일정 <strong id="todayCount">0</strong>개
+            </p>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-icon" aria-hidden="true">
+              <!-- 이번 주 예정 아이콘 수정 위치 -->
+              <img src="./images/09/icon2.png" alt="" />
+            </div>
+
+            <p class="summary-label">
+              이번 주 예정 <strong id="weekCount">0</strong>개
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Section 2: 필터 -->
+      <section class="schedule-section filter-section" aria-label="일정 필터">
+        <div class="filter-tabs" role="group" aria-label="일정 상태 필터">
+          <button
+            type="button"
+            class="filter-button is-active"
+            data-filter="all"
+          >
+            전체
+          </button>
+
+          <button type="button" class="filter-button" data-filter="today">
+            오늘
+          </button>
+
+          <button type="button" class="filter-button" data-filter="pending">
+            예정
+          </button>
+
+          <button type="button" class="filter-button" data-filter="done">
+            완료
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 일정 목록 -->
+      <section class="schedule-section list-section" aria-label="일정 목록">
+        <div id="scheduleList" class="schedule-list"></div>
+
+        <p id="emptyMessage" class="empty-message">
+          등록된 일정이 없어. 오른쪽 아래 + 버튼으로 일정을 추가해줘.
+        </p>
+      </section>
+
+      <!-- Floating Add Button -->
+      <a
+        href="./index10.html"
+        class="floating-add-button"
+        aria-label="일정 추가 화면으로 이동"
+      >
+        <span aria-hidden="true">+</span>
+      </a>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a
+            href="./index7.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a href="./index11.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script9.js"></script>
+  </body>
+</html>

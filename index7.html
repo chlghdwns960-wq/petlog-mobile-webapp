@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 기록 상세</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려동물 산책 기록 상세 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style7.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 기록 상세 화면">
+      <!-- Header: 뒤로가기 / 제목 / 더보기 -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index5.html"
+            class="back-button"
+            aria-label="홈 화면으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">기록 상세</h1>
+        </div>
+
+        <button
+          type="button"
+          class="more-button"
+          id="recordMoreButton"
+          aria-label="기록 관리 메뉴 열기"
+        >
+          <span aria-hidden="true">•••</span>
+        </button>
+      </header>
+
+      <!-- 삭제된 기록 안내 -->
+      <section
+        class="detail-section deleted-section"
+        id="deletedRecordSection"
+        aria-label="삭제된 기록 안내"
+      >
+        <article class="deleted-card">
+          <strong>삭제된 기록입니다</strong>
+          <p>복구하면 다시 산책 기록을 확인할 수 있어.</p>
+
+          <button type="button" id="restoreRecordButton">기록 복구하기</button>
+        </article>
+      </section>
+
+      <!-- Section 1: 산책 기록 카드 -->
+      <section
+        class="detail-section record-section"
+        id="recordSection"
+        aria-labelledby="recordTitle"
+      >
+        <article class="record-card" id="recordCard">
+          <div class="record-card-head">
+            <div class="record-title-area">
+              <img
+                src="./images/05/img4.png"
+                alt=""
+                class="record-icon"
+                aria-hidden="true"
+              />
+
+              <div>
+                <h2 id="recordTitle" class="record-title">산책기록</h2>
+                <p class="record-date" id="recordDateText">
+                  2026.03.16 오후 6:20
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="complete-badge"
+              id="statusToggleButton"
+              aria-label="기록 상태 변경"
+            >
+              완료
+            </button>
+          </div>
+
+          <dl class="record-info-list">
+            <div class="record-info-row">
+              <dt>날짜</dt>
+              <dd id="recordDateValue">2026.03.16</dd>
+            </div>
+
+            <div class="record-info-row">
+              <dt>산책시간</dt>
+              <dd id="recordDurationValue">42분</dd>
+            </div>
+
+            <div class="record-info-row">
+              <dt>산책 거리</dt>
+              <dd id="recordDistanceValue">2.1 km</dd>
+            </div>
+
+            <div class="record-info-row">
+              <dt>배변 여부</dt>
+              <dd id="recordPoopValue">있음</dd>
+            </div>
+
+            <div class="record-info-row">
+              <dt>컨디션</dt>
+              <dd id="recordConditionValue">아주 좋음</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <!-- Section 2: 오늘 산책 리포트 -->
+      <section
+        class="detail-section report-section"
+        id="reportSection"
+        aria-labelledby="reportTitle"
+      >
+        <article class="report-card">
+          <div class="report-head">
+            <div>
+              <h2 id="reportTitle" class="report-title">오늘 산책 리포트</h2>
+              <p class="report-desc" id="reportSummary">
+                오늘 산책량이 충분해요
+              </p>
+            </div>
+
+            <div class="report-score">
+              <strong id="activityScore">92</strong>
+              <span>점</span>
+            </div>
+          </div>
+
+          <div class="score-bar" aria-label="활동 점수">
+            <span id="scoreBarFill"></span>
+          </div>
+
+          <div class="report-grid">
+            <div class="report-item">
+              <span>평소 대비</span>
+              <strong id="reportCompare">평소보다 오래 걸었어요</strong>
+            </div>
+
+            <div class="report-item">
+              <span>추천 관리</span>
+              <strong id="reportCare">오늘은 가벼운 간식만 추천해요</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 3: 메모 카드 -->
+      <section
+        class="detail-section memo-section"
+        id="memoSection"
+        aria-labelledby="memoTitle"
+      >
+        <article class="memo-card">
+          <div class="memo-head">
+            <div class="memo-title-wrap">
+              <h2 id="memoTitle" class="memo-title">메모</h2>
+              <span class="memo-count" id="memoCount">0개</span>
+            </div>
+
+            <button
+              type="button"
+              class="memo-add-button"
+              id="openMemoAddButton"
+              aria-label="메모 추가"
+            >
+              <span aria-hidden="true">+</span>
+            </button>
+          </div>
+
+          <div class="memo-list" id="memoList" aria-label="메모 목록"></div>
+
+          <p class="memo-empty" id="memoEmpty">
+            아직 메모가 없어. + 버튼으로 메모를 추가해줘.
+          </p>
+        </article>
+      </section>
+
+      <!-- Section 4: 히스토리 버튼 -->
+      <section
+        class="detail-section action-section"
+        id="actionSection"
+        aria-label="히스토리 확인"
+      >
+        <a href="./index8.html" class="history-button">히스토리 확인</a>
+      </section>
+
+      <!-- Record Menu Bottom Sheet -->
+      <div class="record-menu-dim" id="recordMenuDim" aria-hidden="true"></div>
+
+      <section
+        class="record-menu-sheet"
+        id="recordMenuSheet"
+        aria-label="기록 관리 메뉴"
+      >
+        <div class="sheet-handle" aria-hidden="true"></div>
+
+        <div class="record-menu-head">
+          <div>
+            <h2>기록 관리</h2>
+            <p>산책 기록을 수정하거나 상태를 바꿀 수 있어.</p>
+          </div>
+
+          <button type="button" id="recordMenuCloseButton">닫기</button>
+        </div>
+
+        <div class="record-menu-list">
+          <button
+            type="button"
+            class="record-menu-item"
+            id="openRecordEditButton"
+          >
+            <strong>산책 기록 수정</strong>
+            <span>날짜, 시간, 거리, 컨디션을 바꿔요</span>
+          </button>
+
+          <button type="button" class="record-menu-item" id="menuStatusButton">
+            <strong>상태 변경</strong>
+            <span>완료 / 예정 상태를 바꿔요</span>
+          </button>
+
+          <button
+            type="button"
+            class="record-menu-item is-danger"
+            id="deleteRecordButton"
+          >
+            <strong>기록 삭제</strong>
+            <span>이 산책 기록을 화면에서 삭제해요</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Record Edit Bottom Sheet -->
+      <div class="record-edit-dim" id="recordEditDim" aria-hidden="true"></div>
+
+      <section
+        class="record-edit-sheet"
+        id="recordEditSheet"
+        aria-label="산책 기록 수정"
+      >
+        <div class="sheet-handle" aria-hidden="true"></div>
+
+        <div class="record-edit-head">
+          <h2>산책 기록 수정</h2>
+          <button type="button" id="recordEditCloseButton">닫기</button>
+        </div>
+
+        <div class="record-edit-form">
+          <label class="edit-field">
+            <span>날짜</span>
+            <input type="date" id="editDateInput" />
+          </label>
+
+          <label class="edit-field">
+            <span>시간</span>
+            <input type="time" id="editTimeInput" />
+          </label>
+
+          <label class="edit-field">
+            <span>산책시간</span>
+            <input
+              type="number"
+              id="editDurationInput"
+              min="1"
+              max="240"
+              inputmode="numeric"
+            />
+          </label>
+
+          <label class="edit-field">
+            <span>산책 거리</span>
+            <input
+              type="number"
+              id="editDistanceInput"
+              min="0"
+              max="20"
+              step="0.1"
+              inputmode="decimal"
+            />
+          </label>
+
+          <label class="edit-field">
+            <span>배변 여부</span>
+            <select id="editPoopSelect">
+              <option value="있음">있음</option>
+              <option value="없음">없음</option>
+            </select>
+          </label>
+
+          <label class="edit-field">
+            <span>컨디션</span>
+            <select id="editConditionSelect">
+              <option value="아주 좋음">아주 좋음</option>
+              <option value="좋음">좋음</option>
+              <option value="보통">보통</option>
+              <option value="피곤함">피곤함</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="record-edit-actions">
+          <button
+            type="button"
+            class="record-edit-cancel"
+            id="recordEditCancelButton"
+          >
+            취소
+          </button>
+
+          <button
+            type="button"
+            class="record-edit-save"
+            id="recordEditSaveButton"
+          >
+            수정 완료
+          </button>
+        </div>
+      </section>
+
+      <!-- Memo Bottom Sheet -->
+      <div class="memo-dim" id="memoDim" aria-hidden="true"></div>
+
+      <section class="memo-sheet" id="memoSheet" aria-label="메모 입력창">
+        <div class="memo-sheet-handle" aria-hidden="true"></div>
+
+        <div class="memo-sheet-head">
+          <h2 id="memoSheetTitle">메모 추가</h2>
+          <button type="button" id="memoCloseButton">닫기</button>
+        </div>
+
+        <label for="memoTextInput" class="memo-input-label">메모 내용</label>
+
+        <textarea
+          id="memoTextInput"
+          class="memo-textarea"
+          placeholder="메모를 입력해줘"
+          maxlength="120"
+        ></textarea>
+
+        <div class="memo-sheet-actions">
+          <button
+            type="button"
+            class="memo-cancel-button"
+            id="memoCancelButton"
+          >
+            취소
+          </button>
+
+          <button type="button" class="memo-save-button" id="memoSaveButton">
+            저장
+          </button>
+        </div>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a
+            href="./index7.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item"
+            aria-label="병원 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script7.js"></script>
+  </body>
+</html>

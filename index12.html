@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>PetLog 병원 상세</title>
+
+    <meta name="description" content="PetLog 동물병원 상세 정보 화면입니다." />
+
+    <link rel="stylesheet" href="./css/style12.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 병원 상세 화면">
+      <!-- Header: 뒤로가기 / 제목 -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index11.html"
+            class="back-button"
+            aria-label="병원 리스트 화면으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">병원 상세</h1>
+        </div>
+      </header>
+
+      <!-- Section 1: 병원 요약 -->
+      <section
+        class="detail-section summary-section"
+        aria-label="병원 요약 정보"
+      >
+        <article class="summary-card">
+          <h2 class="hospital-name" id="hospitalName">튼튼동물 병원</h2>
+
+          <div class="hospital-meta">
+            <span class="distance-text" id="hospitalDistance">도보 8분</span>
+            <span class="status-badge" id="hospitalStatus">진료중</span>
+          </div>
+
+          <p class="review-text" id="hospitalReview">리뷰 128개</p>
+          <p class="summary-desc" id="hospitalSummary">
+            예방접종과 건강검진 진료가 가능해요
+          </p>
+
+          <div class="action-buttons" aria-label="병원 빠른 메뉴">
+            <a
+              href="tel:032-1234-5678"
+              class="action-button"
+              aria-label="전화하기"
+              id="phoneButton"
+            >
+              <img src="./images/12/icon1.png" alt="" aria-hidden="true" />
+              <span>전화</span>
+            </a>
+
+            <!-- 길찾기 버튼만 Step13으로 이동 -->
+            <a
+              href="./index13.html"
+              class="action-button"
+              aria-label="길찾기 화면으로 이동"
+            >
+              <img src="./images/12/icon2.png" alt="" aria-hidden="true" />
+              <span>길찾기</span>
+            </a>
+
+            <a href="#" class="action-button" aria-label="예약하기">
+              <img src="./images/12/icon3.png" alt="" aria-hidden="true" />
+              <span>예약</span>
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 2: 기본 정보 -->
+      <section class="detail-section info-section" aria-label="병원 기본 정보">
+        <article class="info-card">
+          <h2 class="section-title">기본 정보</h2>
+
+          <dl class="info-list">
+            <div class="info-row">
+              <dt>주소</dt>
+              <dd id="hospitalAddress">경기도 김포시 장기동</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>전화번호</dt>
+              <dd id="hospitalPhone">032-1234-5678</dd>
+            </div>
+
+            <div class="info-row">
+              <dt>운영시간</dt>
+              <dd id="hospitalHours">
+                평일 09:00 - 18:00<br />
+                토요일 09:00 - 14:00
+              </dd>
+            </div>
+
+            <div class="info-row">
+              <dt>휴무일</dt>
+              <dd id="hospitalClosed">일요일</dd>
+            </div>
+          </dl>
+        </article>
+      </section>
+
+      <!-- Section 3: 진료 항목 -->
+      <section class="detail-section treatment-section" aria-label="진료 항목">
+        <article class="treatment-card">
+          <h2 class="section-title">진료 항목</h2>
+
+          <div class="chip-list" aria-label="진료 가능 항목">
+            <span class="chip">예방접종</span>
+            <span class="chip">건강검진</span>
+            <span class="chip">응급진료</span>
+          </div>
+
+          <div class="intro-box">
+            <h3 class="intro-title">병원 소개</h3>
+            <p class="intro-desc" id="hospitalIntro">
+              반려동물의 기본 진료부터 예방접종, 건강검진까지 편하게 진료 받을
+              수 있는 병원입니다.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 4: 예약 문의 -->
+      <section class="detail-section inquiry-section" aria-label="예약 문의">
+        <a href="#" class="inquiry-button">예약 문의하기</a>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script12.js"></script>
+  </body>
+</html>

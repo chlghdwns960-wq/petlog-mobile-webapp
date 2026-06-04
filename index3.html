@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog Login</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려생활 기록 앱 로그인 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style3.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 로그인 화면">
+      <!-- Section 1: 로고 영역 -->
+      <section class="login-section logo-section" aria-label="PetLog 로고">
+        <h1 class="blind">PetLog 로그인</h1>
+
+        <img src="./images/03/logo.png" alt="PetLog 로고" class="login-logo" />
+
+        <p class="login-copy">우리 아이의 하루를 기록해보세요</p>
+      </section>
+
+      <!-- Section 2: 로그인 입력 영역 -->
+      <section class="login-section form-section" aria-label="로그인 입력">
+        <form class="login-form" action="./index4.html" method="get">
+          <div class="input-group email-group">
+            <label for="userEmail" class="blind">이메일</label>
+
+            <div class="input-box" data-type="email">
+              <img
+                src="./images/03/icon1.png"
+                data-default="./images/03/icon1.png"
+                data-active="./images/03/icon1-1.png"
+                alt=""
+                class="input-icon"
+                aria-hidden="true"
+              />
+              <!--
+                이메일 아이콘 경로 수정 위치
+
+                src:
+                처음 화면에 보이는 기본 회색 이메일 아이콘
+
+                data-default:
+                input에서 focus가 빠졌을 때 다시 돌아갈 기본 회색 이메일 아이콘
+
+                data-active:
+                이메일 input을 클릭했을 때 바뀌는 활성 아이콘
+                여기에 포인트컬러 #E58E61로 뽑은 이메일 아이콘을 넣으면 됨
+
+                예:
+                data-active="./images/03/icon1-active.png"
+              -->
+
+              <input
+                type="email"
+                id="userEmail"
+                name="email"
+                placeholder="이메일"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="input-group password-group">
+            <label for="userPassword" class="blind">비밀번호</label>
+
+            <div class="input-box" data-type="password">
+              <img
+                src="./images/03/icon2.png"
+                data-default="./images/03/icon2.png"
+                data-active="./images/03/icon2-1.png"
+                alt=""
+                class="input-icon"
+                aria-hidden="true"
+              />
+              <!--
+                비밀번호 자물쇠 아이콘 경로 수정 위치
+
+                src:
+                처음 화면에 보이는 기본 회색 자물쇠 아이콘
+
+                data-default:
+                input에서 focus가 빠졌을 때 다시 돌아갈 기본 회색 자물쇠 아이콘
+
+                data-active:
+                비밀번호 input을 클릭했을 때 바뀌는 활성 자물쇠 아이콘
+                여기에 메인컬러 #FEBC34로 뽑은 자물쇠 아이콘을 넣으면 됨
+
+                예:
+                data-active="./images/03/icon2-active.png"
+              -->
+
+              <input
+                type="password"
+                id="userPassword"
+                name="password"
+                placeholder="비밀번호"
+                autocomplete="current-password"
+              />
+
+              <button
+                type="button"
+                class="password-toggle"
+                aria-label="비밀번호 보기"
+              >
+                <img
+                  src="./images/03/icon3.png"
+                  data-hide="./images/03/icon3.png"
+                  data-show="./images/03/icon4.png"
+                  alt=""
+                  class="eye-icon"
+                  aria-hidden="true"
+                />
+                <!--
+                  비밀번호 eye 아이콘 경로 수정 위치
+
+                  src:
+                  처음 화면에 보이는 eye 기본 아이콘
+
+                  data-hide:
+                  비밀번호가 숨김 상태일 때 보이는 eye 아이콘
+                  보통 src와 같은 이미지 사용
+
+                  data-show:
+                  사용자가 eye 버튼을 직접 클릭해서
+                  비밀번호가 보이는 상태가 되었을 때 바뀌는 아이콘
+
+                  중요:
+                  비밀번호 input을 클릭한다고 eye 아이콘은 바뀌지 않음.
+                  eye 버튼을 직접 클릭했을 때만 data-show / data-hide로 변경됨.
+
+                  예:
+                  data-hide="./images/03/icon3.png"
+                  data-show="./images/03/icon4.png"
+                -->
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="login-button">로그인</button>
+        </form>
+
+        <div class="login-links" aria-label="회원 관련 메뉴">
+          <a href="./index4.html">이메일 가입</a>
+          <span aria-hidden="true"></span>
+          <a href="./index3.html">비밀번호 찾기</a>
+        </div>
+      </section>
+
+      <!-- Section 3: 간편 로그인 영역 -->
+      <section class="login-section social-section" aria-label="간편 로그인">
+        <div class="social-title">
+          <span></span>
+          <p>간편로그인</p>
+          <span></span>
+        </div>
+
+        <nav class="social-login" aria-label="소셜 로그인 메뉴">
+          <a href="./index4.html" aria-label="카카오로 로그인">
+            <img src="./images/03/kakao.png" alt="카카오 로그인" />
+          </a>
+
+          <a href="./index4.html" aria-label="네이버로 로그인">
+            <img src="./images/03/naver.png" alt="네이버 로그인" />
+          </a>
+
+          <a href="./index4.html" aria-label="구글로 로그인">
+            <img src="./images/03/google.png" alt="구글 로그인" />
+          </a>
+        </nav>
+      </section>
+    </main>
+
+    <script src="./script/script3.js"></script>
+  </body>
+</html>

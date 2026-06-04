@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 사진 아카이브</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려동물 사진 아카이브 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style6.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 사진 아카이브 화면">
+      <!-- Header: 뒤로가기 / 제목 / 검색 / 추가 -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index5.html"
+            class="back-button"
+            aria-label="홈 화면으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">사진 아카이브</h1>
+        </div>
+
+        <div class="header-actions" aria-label="사진 아카이브 메뉴">
+          <button
+            type="button"
+            class="header-icon-button"
+            id="openSearchButton"
+            aria-label="사진 검색"
+            aria-controls="archiveSearchPanel"
+            aria-expanded="false"
+          >
+            <img src="./images/06/icon2.png" alt="" aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            class="header-icon-button"
+            id="openAddPhotoSheetButton"
+            aria-label="사진 추가 메뉴 열기"
+            aria-controls="photoAddSheet"
+          >
+            <img src="./images/06/icon3.png" alt="" aria-hidden="true" />
+          </button>
+        </div>
+      </header>
+
+      <!-- Search Panel -->
+      <section
+        class="archive-search-panel"
+        id="archiveSearchPanel"
+        aria-label="사진 검색창"
+      >
+        <div class="archive-search-box">
+          <img src="./images/06/icon2.png" alt="" aria-hidden="true" />
+
+          <input
+            type="search"
+            id="archiveSearchInput"
+            placeholder="예: 산책, 병원, 낮잠"
+            aria-label="사진 키워드 검색"
+          />
+
+          <button
+            type="button"
+            class="search-clear-button"
+            id="searchClearButton"
+            aria-label="검색어 지우기"
+          >
+            ×
+          </button>
+        </div>
+
+        <button
+          type="button"
+          class="search-close-button"
+          id="searchCloseButton"
+        >
+          닫기
+        </button>
+      </section>
+
+      <!-- Section 1: 아카이브 요약 카드 -->
+      <section
+        class="archive-section summary-section"
+        aria-labelledby="archiveSummaryTitle"
+      >
+        <h2 id="archiveSummaryTitle" class="blind">
+          보리의 사진 아카이브 요약
+        </h2>
+
+        <article class="archive-card">
+          <div class="archive-profile-image">
+            <img src="./images/05/img.png" alt="보리 프로필 사진" />
+          </div>
+
+          <div class="archive-info">
+            <h3 class="archive-title">보리의 아카이브</h3>
+
+            <p class="archive-count">총 사진 <strong>248장</strong></p>
+
+            <p class="archive-desc">이번 달 32장 추가 · 즐겨찾기 18장</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 2: 필터 탭 -->
+      <section class="archive-section filter-section" aria-label="사진 필터">
+        <div class="filter-tabs" role="group" aria-label="사진 분류 필터">
+          <button
+            type="button"
+            class="filter-button is-active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            전체
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="bori"
+            aria-pressed="false"
+          >
+            보리
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="favorite"
+            aria-pressed="false"
+          >
+            즐겨찾기
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="recent"
+            aria-pressed="false"
+          >
+            최근
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 정렬 / 사진 목록 -->
+      <section
+        class="archive-section photo-list-section"
+        aria-labelledby="photoMonthTitle"
+      >
+        <div class="list-toolbar">
+          <div class="sort-wrap">
+            <button
+              type="button"
+              class="sort-button"
+              id="sortButton"
+              aria-expanded="false"
+              aria-controls="sortMenu"
+            >
+              <span id="sortLabel">최신순</span>
+            </button>
+
+            <ul class="sort-menu" id="sortMenu" aria-label="정렬 옵션">
+              <li>
+                <button type="button" data-sort="최신순">최신순</button>
+              </li>
+              <li>
+                <button type="button" data-sort="오래된순">오래된순</button>
+              </li>
+              <li>
+                <button type="button" data-sort="즐겨찾기">즐겨찾기</button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="view-buttons" aria-label="보기 방식">
+            <button
+              type="button"
+              class="view-button is-active"
+              data-view="large"
+              aria-label="큰 그리드 보기"
+              aria-pressed="true"
+            >
+              <img src="./images/06/icon4.png" alt="" aria-hidden="true" />
+            </button>
+
+            <button
+              type="button"
+              class="view-button"
+              data-view="small"
+              aria-label="작은 그리드 보기"
+              aria-pressed="false"
+            >
+              <img src="./images/06/icon5.png" alt="" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
+        <div class="month-head">
+          <h2 id="photoMonthTitle" class="month-title">2026. 03</h2>
+
+          <a
+            href="./index15.html"
+            class="month-add-button"
+            aria-label="2026년 3월 사진 촬영 화면으로 이동"
+          >
+            <img src="./images/06/icon3.png" alt="" aria-hidden="true" />
+          </a>
+        </div>
+
+        <div class="archive-photo-grid" aria-label="2026년 3월 사진 목록">
+          <figure class="photo-item">
+            <img src="./images/06/photo1.png" alt="03.15 산책 사진" />
+            <figcaption>03.15 · 산책</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo2.png" alt="03.13 일상 사진" />
+            <figcaption>03.13 · 일상</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo3.png" alt="03.11 병원 사진" />
+            <figcaption>03.11 · 병원</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo4.png" alt="03.11 낮잠 사진" />
+            <figcaption>03.11 · 낮잠</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo5.png" alt="03.10 아침 식사 사진" />
+            <figcaption>03.10 · 아침 식사</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo6.png" alt="03.09 공놀이 사진" />
+            <figcaption>03.09 · 공놀이</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo7.png" alt="03.06 놀기 사진" />
+            <figcaption>03.06 · 놀기</figcaption>
+          </figure>
+
+          <figure class="photo-item">
+            <img src="./images/06/photo8.png" alt="03.05 샤워 사진" />
+            <figcaption>03.05 · 샤워</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 사진 추가 바텀시트 -->
+      <div class="photo-add-dim" id="photoAddDim" aria-hidden="true"></div>
+
+      <section
+        class="photo-add-sheet"
+        id="photoAddSheet"
+        aria-label="사진 추가 메뉴"
+      >
+        <div class="photo-add-handle" aria-hidden="true"></div>
+
+        <div class="photo-add-head">
+          <div>
+            <h2>사진 추가</h2>
+            <p>보리의 새 사진을 아카이브에 추가해보세요</p>
+          </div>
+
+          <button type="button" id="photoAddCloseButton">닫기</button>
+        </div>
+
+        <div class="photo-add-options">
+          <a href="./index15.html" class="photo-add-option">
+            <strong>사진 촬영하기</strong>
+            <span>카메라로 바로 찍어서 저장해요</span>
+          </a>
+
+          <label for="archiveGalleryInput" class="photo-add-option">
+            <strong>앨범에서 가져오기</strong>
+            <span>이미 저장된 사진을 선택해요</span>
+          </label>
+
+          <button type="button" class="photo-add-option" id="createAlbumButton">
+            <strong>새 앨범 만들기</strong>
+            <span>산책, 병원, 일상처럼 앨범을 나눠요</span>
+          </button>
+        </div>
+
+        <input
+          type="file"
+          id="archiveGalleryInput"
+          accept="image/*"
+          class="photo-add-file-input"
+        />
+      </section>
+
+      <!-- 사진 확대 보기 모달 -->
+      <div
+        class="photo-viewer-dim"
+        id="photoViewerDim"
+        aria-hidden="true"
+      ></div>
+
+      <section
+        class="photo-viewer"
+        id="photoViewer"
+        aria-label="사진 확대 보기"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+      >
+        <button
+          type="button"
+          class="photo-viewer-close"
+          id="photoViewerClose"
+          aria-label="사진 확대 보기 닫기"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+
+        <button
+          type="button"
+          class="photo-viewer-nav photo-viewer-prev"
+          id="photoViewerPrev"
+          aria-label="이전 사진 보기"
+        >
+          <span aria-hidden="true">‹</span>
+        </button>
+
+        <figure class="photo-viewer-figure">
+          <img id="photoViewerImage" src="" alt="확대된 사진" />
+          <figcaption id="photoViewerCaption">사진</figcaption>
+
+          <button
+            type="button"
+            class="photo-viewer-delete-button"
+            id="photoViewerDeleteButton"
+          >
+            사진 삭제
+          </button>
+        </figure>
+
+        <button
+          type="button"
+          class="photo-viewer-nav photo-viewer-next"
+          id="photoViewerNext"
+          aria-label="다음 사진 보기"
+        >
+          <span aria-hidden="true">›</span>
+        </button>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a
+            href="./index6.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item"
+            aria-label="병원 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a
+            href="./index16.html"
+            class="tab-item"
+            aria-label="마이 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script6.js"></script>
+  </body>
+</html>

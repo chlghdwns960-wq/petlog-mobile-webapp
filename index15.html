@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 사진 촬영</title>
+
+    <meta name="description" content="PetLog 반려동물 사진 촬영 화면입니다." />
+
+    <link rel="stylesheet" href="./css/style15.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 사진 촬영 화면">
+      <!-- Header -->
+      <header class="camera-header">
+        <div class="header-left">
+          <a
+            href="./index6.html"
+            class="back-button"
+            aria-label="사진 아카이브로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">사진 촬영</h1>
+        </div>
+
+        <span class="camera-status" id="cameraStatus">대기</span>
+      </header>
+
+      <!-- Section 1: 카메라 화면 -->
+      <section class="camera-section" aria-labelledby="cameraTitle">
+        <h2 id="cameraTitle" class="blind">카메라 미리보기</h2>
+
+        <div class="camera-frame" id="cameraFrame">
+          <video
+            id="cameraVideo"
+            class="camera-video"
+            autoplay
+            muted
+            playsinline
+          ></video>
+
+          <img
+            id="capturedPreview"
+            class="captured-preview"
+            src=""
+            alt="촬영한 사진 미리보기"
+          />
+
+          <div class="camera-grid-line" aria-hidden="true"></div>
+
+          <div class="camera-message" id="cameraMessage">
+            카메라 권한을 허용하면 촬영 화면이 보여요.
+          </div>
+        </div>
+
+        <canvas id="captureCanvas" class="capture-canvas"></canvas>
+      </section>
+
+      <!-- Section 2: 촬영 컨트롤 -->
+      <section class="control-section" aria-label="카메라 조작">
+        <div class="camera-actions is-shooting" id="shootingActions">
+          <label class="gallery-button" for="galleryInput">갤러리</label>
+
+          <input
+            type="file"
+            id="galleryInput"
+            accept="image/*"
+            capture="environment"
+          />
+
+          <button
+            type="button"
+            class="shoot-button"
+            id="shootButton"
+            aria-label="사진 촬영"
+          >
+            <span></span>
+          </button>
+
+          <button type="button" class="switch-button" id="switchButton">
+            전환
+          </button>
+        </div>
+
+        <div class="camera-actions is-preview" id="previewActions">
+          <button type="button" class="retake-button" id="retakeButton">
+            다시 찍기
+          </button>
+
+          <button type="button" class="save-button" id="saveButton">
+            사진 저장하기
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 안내 카드 -->
+      <section class="guide-section" aria-labelledby="guideTitle">
+        <h2 id="guideTitle">촬영 팁</h2>
+        <p>
+          보리가 화면 중앙에 오도록 맞춘 뒤 촬영해줘. 저장하면 사진 아카이브에
+          새 사진으로 추가돼.
+        </p>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a
+            href="./index6.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a href="./index11.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script15.js"></script>
+  </body>
+</html>

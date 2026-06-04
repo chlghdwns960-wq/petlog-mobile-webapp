@@ -1,0 +1,503 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --color-text-main: #333333;
+  --color-text-sub: #555555;
+  --color-primary: #febc34;
+  --color-sub: #fff8e8;
+  --color-point: #e58e61;
+  --color-white: #ffffff;
+  --color-disabled-text: #888888;
+
+  --header-height: 48px;
+  --nav-height: 70px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Segoe UI",
+    sans-serif;
+  color: var(--color-text-main);
+  background: var(--color-white);
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a,
+button,
+label {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+img,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible,
+label:focus-visible {
+  outline: 3px solid var(--color-point);
+  outline-offset: 4px;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 20px calc(var(--nav-height) + 28px);
+  background: var(--color-white);
+  overflow-x: hidden;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 12px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-text-main);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Header */
+.camera-header {
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.page-title {
+  color: var(--color-text-main);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.camera-status {
+  min-width: 52px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--color-sub);
+  color: var(--color-text-sub);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* Camera */
+.camera-section {
+  margin-top: 20px;
+}
+
+.camera-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 24px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.24)), var(--color-sub);
+  box-shadow: 0 12px 30px rgba(51, 51, 51, 0.12);
+}
+
+.camera-video,
+.captured-preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-video {
+  opacity: 1;
+}
+
+.captured-preview {
+  display: none;
+  background: var(--color-sub);
+}
+
+.camera-frame.is-preview .camera-video {
+  display: none;
+}
+
+.camera-frame.is-preview .captured-preview {
+  display: block;
+}
+
+.camera-grid-line {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to right,
+      transparent 33.33%,
+      rgba(255, 255, 255, 0.18) 33.33%,
+      rgba(255, 255, 255, 0.18) 33.7%,
+      transparent 33.7%,
+      transparent 66.66%,
+      rgba(255, 255, 255, 0.18) 66.66%,
+      rgba(255, 255, 255, 0.18) 67%,
+      transparent 67%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 33.33%,
+      rgba(255, 255, 255, 0.18) 33.33%,
+      rgba(255, 255, 255, 0.18) 33.7%,
+      transparent 33.7%,
+      transparent 66.66%,
+      rgba(255, 255, 255, 0.18) 66.66%,
+      rgba(255, 255, 255, 0.18) 67%,
+      transparent 67%
+    );
+}
+
+.camera-message {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  min-height: 38px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--color-text-main);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.camera-message.is-hidden {
+  display: none;
+}
+
+.capture-canvas {
+  display: none;
+}
+
+/* Controls */
+.control-section {
+  margin-top: 18px;
+}
+
+.camera-actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 78px 1fr;
+  align-items: center;
+  gap: 14px;
+}
+
+.camera-actions.is-preview {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+}
+
+.control-section.is-preview .camera-actions.is-shooting {
+  display: none;
+}
+
+.control-section.is-preview .camera-actions.is-preview {
+  display: grid;
+}
+
+.gallery-button,
+.switch-button,
+.retake-button,
+.save-button {
+  height: 46px;
+  border-radius: 16px;
+  background: var(--color-sub);
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.gallery-button:hover,
+.switch-button:hover,
+.retake-button:hover,
+.save-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.1);
+}
+
+#galleryInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shoot-button {
+  width: 78px;
+  height: 78px;
+  border: 6px solid var(--color-white);
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow:
+    0 0 0 2px rgba(254, 188, 52, 0.5),
+    0 10px 24px rgba(254, 188, 52, 0.28);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.shoot-button span {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.shoot-button:hover {
+  transform: scale(1.04);
+  background: var(--color-point);
+}
+
+.shoot-button:active {
+  transform: scale(0.94);
+}
+
+.save-button {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.save-button:hover {
+  background: var(--color-point);
+}
+
+.retake-button {
+  background: var(--color-sub);
+}
+
+/* Guide */
+.guide-section {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--color-sub);
+}
+
+.guide-section h2 {
+  color: var(--color-text-main);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.guide-section p {
+  margin-top: 8px;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Bottom Fixed Tab Bar */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--color-white);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.tab-menu {
+  width: 100%;
+  height: 100%;
+  padding: 7px 10px 5px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tab-item {
+  min-width: 0;
+  color: var(--color-disabled-text);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.tab-icon img {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: opacity 0.18s ease;
+}
+
+.icon-on {
+  opacity: 0;
+}
+
+.icon-off {
+  opacity: 1;
+}
+
+.tab-label {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.18s ease;
+}
+
+.tab-item:hover,
+.tab-item.is-active {
+  color: var(--color-primary);
+}
+
+.tab-item:hover .icon-on,
+.tab-item.is-active .icon-on {
+  opacity: 1;
+}
+
+.tab-item:hover .icon-off,
+.tab-item.is-active .icon-off {
+  opacity: 0;
+}
+
+@media (max-width: 360px) {
+  .app {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .camera-actions {
+    grid-template-columns: 1fr 70px 1fr;
+    gap: 10px;
+  }
+
+  .shoot-button {
+    width: 70px;
+    height: 70px;
+  }
+
+  .shoot-button span {
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -1,0 +1,1059 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --color-text-main: #333333;
+  --color-text-sub: #555555;
+  --color-primary: #febc34;
+  --color-sub: #fff8e8;
+  --color-point: #e58e61;
+  --color-input-bg: #f0f0f0;
+  --color-disabled-text: #888888;
+  --color-active-text: #222222;
+  --color-white: #ffffff;
+  --color-line: #dddddd;
+
+  --header-height: 48px;
+  --nav-height: 70px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Segoe UI",
+    sans-serif;
+  color: var(--color-text-main);
+  background: var(--color-white);
+}
+
+body,
+h1,
+h2,
+p,
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+a,
+button,
+textarea,
+input,
+select {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+textarea,
+input,
+select {
+  border: 0;
+  outline: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-point);
+  outline-offset: 4px;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 20px calc(var(--nav-height) + 28px);
+  background: var(--color-white);
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 12px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-text-main);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Header */
+.page-header {
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button {
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.page-title {
+  color: var(--color-text-main);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.more-button {
+  min-width: 32px;
+  height: 32px;
+  color: #d8a02c;
+  font-size: 20px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button:hover,
+.more-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Common */
+.detail-section {
+  width: 100%;
+}
+
+/* Deleted */
+.deleted-section {
+  display: none;
+  margin-top: 16px;
+}
+
+.deleted-section.is-open {
+  display: block;
+}
+
+.deleted-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--color-sub);
+  text-align: center;
+}
+
+.deleted-card strong {
+  display: block;
+  color: var(--color-text-main);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.deleted-card p {
+  margin-top: 8px;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.deleted-card button {
+  width: 100%;
+  height: 46px;
+  margin-top: 16px;
+  border-radius: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Record Card */
+.record-section {
+  margin-top: 16px;
+}
+
+.record-card {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--color-white);
+  box-shadow: 0 4px 14px rgba(51, 51, 51, 0.14);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.record-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(51, 51, 51, 0.16);
+}
+
+.record-card-head {
+  min-height: 80px;
+  padding: 18px 26px;
+  background: var(--color-sub);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.record-title-area {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.record-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.record-title {
+  color: var(--color-text-main);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.record-date {
+  margin-top: 4px;
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.complete-badge {
+  min-width: 64px;
+  height: 30px;
+  padding: 0 14px;
+  border-radius: 9px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.complete-badge.is-pending {
+  background: rgba(51, 51, 51, 0.16);
+  color: var(--color-text-sub);
+}
+
+.complete-badge:hover {
+  transform: translateY(-1px);
+}
+
+.record-info-list {
+  padding: 0 16px 8px;
+  background: var(--color-white);
+}
+
+.record-info-row {
+  min-height: 36px;
+  border-bottom: 1px dashed var(--color-line);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.record-info-row:last-child {
+  border-bottom: 0;
+}
+
+.record-info-row dt {
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.record-info-row dd {
+  color: var(--color-text-main);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+/* Report */
+.report-section {
+  margin-top: 16px;
+}
+
+.report-card {
+  width: 100%;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--color-sub);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.report-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.1);
+}
+
+.report-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.report-title {
+  color: var(--color-text-main);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.report-desc {
+  margin-top: 5px;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.report-score {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border-radius: 50%;
+  background: var(--color-white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+
+  flex: 0 0 auto;
+}
+
+.report-score strong {
+  color: var(--color-point);
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.report-score span {
+  color: var(--color-text-sub);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(2px);
+}
+
+.score-bar {
+  width: 100%;
+  height: 10px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  overflow: hidden;
+}
+
+.score-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-point));
+  transition: width 0.28s ease;
+}
+
+.report-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.report-item {
+  min-height: 56px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.report-item span {
+  display: block;
+  color: var(--color-text-sub);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.report-item strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+/* Memo */
+.memo-section {
+  margin-top: 16px;
+}
+
+.memo-card {
+  width: 100%;
+  min-height: 96px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--color-sub);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.memo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.1);
+}
+
+.memo-head {
+  min-height: 48px;
+  padding: 0 14px 0 16px;
+  border-bottom: 1px dashed rgba(51, 51, 51, 0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.memo-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.memo-title {
+  color: var(--color-point);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.memo-count {
+  min-width: 34px;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: rgba(254, 188, 52, 0.28);
+  color: var(--color-text-sub);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+.memo-add-button {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 32px;
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.memo-add-button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -54%);
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.memo-add-button:hover {
+  transform: translateY(-1px) scale(1.04);
+  background: var(--color-point);
+  box-shadow: 0 6px 14px rgba(229, 142, 97, 0.22);
+}
+
+.memo-list {
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.memo-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+
+  display: grid;
+  gap: 10px;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.memo-item:hover {
+  transform: translateY(-1px);
+  background: var(--color-white);
+  box-shadow: 0 6px 14px rgba(51, 51, 51, 0.08);
+}
+
+.memo-item-text {
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+
+.memo-item-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.memo-action-button {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-text-sub);
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.memo-action-button:hover {
+  transform: translateY(-1px);
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.memo-action-button.is-delete:hover {
+  background: var(--color-point);
+  color: var(--color-white);
+}
+
+.memo-empty {
+  display: none;
+  padding: 18px 16px;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+}
+
+/* Sheets Common */
+.memo-dim,
+.record-menu-dim,
+.record-edit-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  display: none;
+  background: rgba(51, 51, 51, 0.28);
+}
+
+.memo-dim.is-open,
+.record-menu-dim.is-open,
+.record-edit-dim.is-open {
+  display: block;
+}
+
+.memo-sheet,
+.record-menu-sheet,
+.record-edit-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  z-index: 200;
+
+  width: 100%;
+  padding: 12px 20px calc(var(--nav-height) + 24px);
+  border-radius: 24px 24px 0 0;
+  background: var(--color-sub);
+  box-shadow: 0 -10px 28px rgba(51, 51, 51, 0.16);
+
+  transition: bottom 0.28s ease;
+}
+
+.memo-sheet.is-open,
+.record-menu-sheet.is-open,
+.record-edit-sheet.is-open {
+  bottom: 0;
+}
+
+.memo-sheet-handle,
+.sheet-handle {
+  width: 44px;
+  height: 4px;
+  margin: 0 auto 16px;
+  border-radius: 999px;
+  background: rgba(51, 51, 51, 0.18);
+}
+
+/* Record Menu */
+.record-menu-head,
+.record-edit-head,
+.memo-sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.record-menu-head h2,
+.record-edit-head h2,
+.memo-sheet-head h2 {
+  color: var(--color-text-main);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.record-menu-head p {
+  margin-top: 4px;
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.record-menu-head button,
+.record-edit-head button,
+.memo-sheet-head button {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.record-menu-list {
+  margin-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.record-menu-item {
+  width: 100%;
+  min-height: 64px;
+  padding: 13px 14px;
+  border-radius: 16px;
+  background: var(--color-white);
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.record-menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.08);
+}
+
+.record-menu-item strong {
+  color: var(--color-text-main);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.record-menu-item span {
+  color: var(--color-text-sub);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.record-menu-item.is-danger strong {
+  color: var(--color-point);
+}
+
+/* Record Edit */
+.record-edit-form {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.edit-field {
+  display: grid;
+  gap: 7px;
+}
+
+.edit-field span {
+  color: var(--color-text-main);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.edit-field input,
+.edit-field select {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  border: 1px solid rgba(51, 51, 51, 0.14);
+  border-radius: 14px;
+  background: var(--color-white);
+  color: var(--color-text-main);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.edit-field input:focus,
+.edit-field select:focus {
+  border-color: var(--color-point);
+  box-shadow: 0 0 0 3px rgba(229, 142, 97, 0.12);
+}
+
+.record-edit-actions,
+.memo-sheet-actions {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.record-edit-cancel,
+.record-edit-save,
+.memo-cancel-button,
+.memo-save-button {
+  height: 46px;
+  border-radius: 14px;
+  font-size: 15px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.record-edit-cancel,
+.memo-cancel-button {
+  background: var(--color-white);
+  color: var(--color-text-sub);
+}
+
+.record-edit-save,
+.memo-save-button {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.record-edit-cancel:hover,
+.record-edit-save:hover,
+.memo-cancel-button:hover,
+.memo-save-button:hover {
+  transform: translateY(-1px);
+}
+
+.record-edit-save:hover,
+.memo-save-button:hover {
+  background: var(--color-point);
+}
+
+/* Memo Sheet */
+.memo-input-label {
+  display: block;
+  margin-top: 18px;
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.memo-textarea {
+  width: 100%;
+  height: 132px;
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid rgba(51, 51, 51, 0.16);
+  border-radius: 16px;
+  background: var(--color-white);
+  color: var(--color-text-main);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  transition:
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.memo-textarea:focus {
+  border-color: var(--color-point);
+  box-shadow: 0 0 0 3px rgba(229, 142, 97, 0.12);
+}
+
+/* History Button */
+.action-section {
+  margin-top: 24px;
+}
+
+.history-button {
+  width: 100%;
+  height: 54px;
+  border: 1px solid var(--color-text-main);
+  border-radius: 16px;
+  background: var(--color-white);
+  color: var(--color-text-main);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.history-button:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 8px 18px rgba(254, 188, 52, 0.28);
+}
+
+.history-button:active {
+  transform: scale(0.98);
+}
+
+/* Bottom Fixed Tab Bar */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--color-white);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.tab-menu {
+  width: 100%;
+  height: 100%;
+  padding: 7px 10px 5px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tab-item {
+  min-width: 0;
+  color: var(--color-disabled-text);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.tab-icon img {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: opacity 0.18s ease;
+}
+
+.icon-on {
+  opacity: 0;
+}
+
+.icon-off {
+  opacity: 1;
+}
+
+.tab-label {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.18s ease;
+}
+
+.tab-item:hover,
+.tab-item.is-active {
+  color: var(--color-primary);
+}
+
+.tab-item:hover .icon-on,
+.tab-item.is-active .icon-on {
+  opacity: 1;
+}
+
+.tab-item:hover .icon-off,
+.tab-item.is-active .icon-off {
+  opacity: 0;
+}
+
+body.is-sheet-open {
+  overflow: hidden;
+}
+
+@media (max-width: 360px) {
+  .app {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .record-card-head {
+    padding: 16px 20px;
+  }
+
+  .record-title {
+    font-size: 18px;
+  }
+
+  .record-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .complete-badge {
+    min-width: 58px;
+    font-size: 12px;
+  }
+
+  .memo-sheet,
+  .record-menu-sheet,
+  .record-edit-sheet {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

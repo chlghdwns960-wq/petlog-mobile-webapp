@@ -1,0 +1,355 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --color-text-main: #333333;
+  --color-text-sub: #555555;
+  --color-primary: #febc34;
+  --color-sub: #fff8e8;
+  --color-point: #e58e61;
+  --color-white: #ffffff;
+  --color-focus: #e58e61;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Segoe UI",
+    sans-serif;
+  color: var(--text-main);
+  background: var(--white);
+}
+
+body,
+h1,
+p {
+  margin: 0;
+}
+
+button,
+a {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
+/* 모바일 전용 전체 가로 100% */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 82px 20px 38px;
+  background: var(--white);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 본문 바로가기 */
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 12px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--text-main);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* 공통 section */
+.onboarding-section {
+  width: 100%;
+}
+
+/* Section 1: 이미지 */
+.visual-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 255px;
+}
+
+.slide-track {
+  position: relative;
+  width: 100%;
+  height: 255px;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(18px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.onboarding-image {
+  width: 310px;
+  max-height: 245px;
+  object-fit: contain;
+}
+
+/* Section 2: 텍스트 */
+.text-section {
+  position: relative;
+  min-height: 158px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.text-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.text-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.onboarding-title {
+  color: var(--color-text-main);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.32;
+  letter-spacing: -0.045em;
+}
+
+.onboarding-title strong {
+  color: var(--color-primary);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.onboarding-desc {
+  margin-top: 18px;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+/* Section 3: 컨트롤 */
+.control-section {
+  margin-top: auto;
+  padding-bottom: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffe8ba;
+  transition:
+    width 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.dot.is-active {
+  background: var(--color-primary);
+}
+
+.next-button {
+  width: 100%;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--color-sub);
+  color: var(--color-active-text, #222222);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+/* 다음 / 시작하기 버튼 hover 효과 */
+.next-button:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* 키보드 접근성 focus 효과 */
+.next-button:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-white);
+  outline: 3px solid var(--color-point);
+  outline-offset: 4px;
+}
+
+.next-button:active {
+  transform: scale(0.98);
+}
+
+/* 실제 링크는 연결하되 시각적으로는 숨김 */
+.login-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  left: -9999px;
+  overflow: hidden;
+}
+
+.noscript-message {
+  margin-top: 16px;
+  color: var(--text-main);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.noscript-message a {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* 작은 화면 보정 */
+@media (max-width: 360px) {
+  .app {
+    padding-top: 70px;
+  }
+
+  .visual-section {
+    min-height: 238px;
+  }
+
+  .slide-track {
+    height: 238px;
+  }
+
+  .onboarding-image {
+    width: 288px;
+  }
+
+  .onboarding-title {
+    font-size: 24px;
+  }
+
+  .pagination {
+    margin-bottom: 38px;
+  }
+}
+.slide,
+.text-slide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 10px, 0);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s ease,
+    visibility 0.75s ease;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.slide.is-active,
+.text-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+.slide img {
+  transform: translateZ(0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+.dot {
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.dot.is-active {
+  transform: scale(1.15);
+}
+
+#nextButton {
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    background-color 0.25s ease;
+}

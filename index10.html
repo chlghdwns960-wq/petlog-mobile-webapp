@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>PetLog 일정 추가</title>
+
+    <meta name="description" content="PetLog 반려동물 일정 추가 화면입니다." />
+
+    <link rel="stylesheet" href="./css/style10.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 일정 추가 화면">
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index9.html"
+            class="back-button"
+            aria-label="일정 목록으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">일정 추가</h1>
+        </div>
+      </header>
+
+      <p class="page-desc">우리 아이 일정을 간편하게 등록해보세요</p>
+
+      <!-- Section 1: 일정 제목 -->
+      <section class="add-section title-section" aria-label="일정 제목 입력">
+        <label for="scheduleTitle" class="section-label">일정제목</label>
+
+        <input
+          type="text"
+          id="scheduleTitle"
+          class="schedule-title-input"
+          placeholder="일정을 입력하세요"
+          autocomplete="off"
+        />
+      </section>
+
+      <!-- Section 2: 반려동물 / 일정 종류 -->
+      <section
+        class="add-section pet-section"
+        aria-label="반려동물과 일정 종류 선택"
+      >
+        <h2 class="section-label">반려동물</h2>
+
+        <div class="pet-buttons" role="group" aria-label="반려동물 선택">
+          <button type="button" class="select-button is-active" data-pet="보리">
+            보리
+          </button>
+        </div>
+
+        <div class="category-buttons" role="group" aria-label="일정 종류 선택">
+          <button
+            type="button"
+            class="select-button is-active"
+            data-category="목욕"
+          >
+            목욕
+          </button>
+          <button type="button" class="select-button" data-category="병원">
+            병원
+          </button>
+          <button type="button" class="select-button" data-category="산책">
+            산책
+          </button>
+          <button type="button" class="select-button" data-category="약">
+            약
+          </button>
+          <button type="button" class="select-button" data-category="기타">
+            기타
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 일정 시간 -->
+      <section class="add-section time-section" aria-label="일정 시간 선택">
+        <h2 class="section-label">일정시간</h2>
+
+        <button type="button" class="time-row" id="openDateTimePicker">
+          <span class="time-label">날짜</span>
+          <strong id="selectedDate">2026.03.16</strong>
+
+          <span class="divider" aria-hidden="true"></span>
+
+          <span class="time-label">시간</span>
+          <strong id="selectedTime">오전 9:00</strong>
+
+          <span class="arrow" aria-hidden="true">›</span>
+        </button>
+      </section>
+
+      <!-- Section 4: 반복 여부 -->
+      <section class="add-section repeat-section" aria-label="반복 여부 선택">
+        <h2 class="section-label">반복여부</h2>
+
+        <div class="repeat-buttons" role="group" aria-label="반복 여부">
+          <button
+            type="button"
+            class="select-button is-active"
+            data-repeat="반복 안함"
+          >
+            반복 안함
+          </button>
+          <button type="button" class="select-button" data-repeat="매일">
+            매일
+          </button>
+          <button type="button" class="select-button" data-repeat="매주">
+            매주
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 5: 알림 설정 -->
+      <section class="add-section reminder-section" aria-label="알림 설정">
+        <h2 class="section-label">알림설정</h2>
+
+        <div class="reminder-box">
+          <img
+            src="./images/05/icon.png"
+            alt=""
+            aria-hidden="true"
+            class="reminder-icon"
+          />
+
+          <button type="button" class="reminder-select" id="reminderSelect">
+            <span id="selectedReminder">10분 전</span>
+            <span aria-hidden="true">⌄</span>
+          </button>
+        </div>
+
+        <div class="reminder-options" id="reminderOptions">
+          <button type="button" data-reminder="1분 전">1분 전</button>
+          <button type="button" data-reminder="3분 전">3분 전</button>
+          <button type="button" data-reminder="5분 전">5분 전</button>
+          <button type="button" data-reminder="10분 전" class="is-active">
+            10분 전
+          </button>
+          <button type="button" data-reminder="15분 전">15분 전</button>
+          <button type="button" data-reminder="30분 전">30분 전</button>
+          <button type="button" data-reminder="1시간 전">1시간 전</button>
+        </div>
+      </section>
+
+      <!-- Section 6: 저장 -->
+      <section class="add-section save-section" aria-label="일정 저장">
+        <button type="button" class="save-button" id="saveScheduleButton">
+          일정 저장하기
+        </button>
+      </section>
+
+      <!-- Date / Time Bottom Sheet -->
+      <div class="sheet-dim" id="sheetDim" aria-hidden="true"></div>
+
+      <section
+        class="bottom-sheet"
+        id="dateTimeSheet"
+        aria-label="날짜와 시간 선택"
+      >
+        <div class="sheet-handle" aria-hidden="true"></div>
+
+        <div class="sheet-header">
+          <h2>날짜 · 시간 선택</h2>
+          <button type="button" id="closeSheetButton">닫기</button>
+        </div>
+
+        <!-- 날짜 선택 -->
+        <div class="sheet-block">
+          <h3>날짜 선택</h3>
+
+          <div class="picker-tabs" role="group" aria-label="날짜 선택 탭">
+            <button
+              type="button"
+              class="picker-tab is-active"
+              data-date-tab="year"
+            >
+              년
+            </button>
+            <button type="button" class="picker-tab" data-date-tab="month">
+              월
+            </button>
+            <button type="button" class="picker-tab" data-date-tab="day">
+              일
+            </button>
+          </div>
+
+          <div class="date-picker-panels">
+            <div class="date-panel is-active" id="yearPanel">
+              <div class="picker-options year-options" id="yearOptions"></div>
+            </div>
+
+            <div class="date-panel" id="monthPanel">
+              <div class="picker-options month-options" id="monthOptions"></div>
+            </div>
+
+            <div class="date-panel" id="dayPanel">
+              <div class="picker-options day-options" id="dayOptions"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 시간 선택 -->
+        <div class="sheet-block">
+          <h3>시간 선택</h3>
+
+          <div class="time-picker-wrap">
+            <div class="time-picker-group">
+              <p class="picker-small-title">오전/오후</p>
+
+              <div class="picker-options meridiem-options" id="meridiemOptions">
+                <button type="button" data-meridiem="오전" class="is-active">
+                  오전
+                </button>
+                <button type="button" data-meridiem="오후">오후</button>
+              </div>
+            </div>
+
+            <div class="time-picker-group">
+              <p class="picker-small-title">시간</p>
+              <div class="picker-options hour-options" id="hourOptions"></div>
+            </div>
+
+            <div class="time-picker-group">
+              <p class="picker-small-title">분</p>
+              <div
+                class="picker-options minute-options"
+                id="minuteOptions"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a
+            href="./index7.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a href="./index11.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script10.js"></script>
+  </body>
+</html>

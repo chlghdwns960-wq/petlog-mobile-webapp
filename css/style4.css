@@ -1,0 +1,231 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --color-text-main: #333333;
+  --color-text-sub: #555555;
+  --color-primary: #febc34;
+  --color-sub: #fff8e8;
+  --color-point: #e58e61;
+  --color-input-bg: #f0f0f0;
+  --color-disabled-text: #888888;
+  --color-active-text: #222222;
+  --color-white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    "Segoe UI",
+    sans-serif;
+  color: var(--color-text-main);
+  background: var(--color-white);
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+a,
+button {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-point);
+  outline-offset: 4px;
+}
+
+/* 모바일 전용 전체 가로 100% */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 214px 20px 40px;
+  background: var(--color-white);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 접근성용 숨김 텍스트 */
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 본문 바로가기 */
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 12px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-text-main);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* 공통 section */
+.empty-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Section 1: 로고 */
+.logo-section {
+  animation: fadeUp 0.45s ease forwards;
+}
+
+.empty-logo {
+  width: 92px;
+}
+
+/* Section 2: 문구 */
+.message-section {
+  margin-top: 24px;
+  flex-direction: column;
+  text-align: center;
+  animation: fadeUp 0.55s ease forwards;
+}
+
+.empty-title {
+  color: var(--color-text-main);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.04em;
+}
+
+.empty-desc {
+  margin-top: 14px;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+}
+
+/* Section 3: 버튼 */
+.action-section {
+  margin-top: 22px;
+  animation: fadeUp 0.65s ease forwards;
+}
+
+.register-button {
+  width: 160px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--color-sub);
+  color: var(--color-disabled-text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 등록하기 버튼 hover 효과 */
+.register-button:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 8px 14px rgba(254, 188, 52, 0.28);
+}
+
+.register-button:active {
+  transform: scale(0.98);
+}
+
+.register-button:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-white);
+  outline: 3px solid var(--color-point);
+  outline-offset: 4px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 작은 화면 보정 */
+@media (max-width: 360px) {
+  .app {
+    padding-top: 190px;
+  }
+
+  .empty-logo {
+    width: 86px;
+  }
+
+  .empty-title {
+    font-size: 20px;
+  }
+}

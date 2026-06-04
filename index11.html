@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 병원 리스트</title>
+
+    <meta
+      name="description"
+      content="PetLog 가까운 동물병원 리스트 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style11.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 병원 리스트 화면">
+      <!-- Header: 뒤로가기 / 제목 / 지도 -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index5.html"
+            class="back-button"
+            aria-label="홈 화면으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">병원 리스트</h1>
+        </div>
+
+        <!-- 지도 아이콘: 클릭 시 Step13 지도 화면으로 이동 -->
+        <a
+          href="./index13.html"
+          class="map-button"
+          aria-label="지도 화면으로 이동"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M9 18L3.8 20.6C3.4 20.8 3 20.5 3 20.1V6.4C3 6.2 3.1 6 3.3 5.9L9 3.2V18Z"
+              stroke="#FEBC34"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M9 3.2L15 6V20.8L9 18V3.2Z"
+              stroke="#FEBC34"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M15 6L20.2 3.4C20.6 3.2 21 3.5 21 3.9V17.6C21 17.8 20.9 18 20.7 18.1L15 20.8V6Z"
+              stroke="#FEBC34"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+            <circle cx="12" cy="11" r="2" fill="#FEBC34" />
+          </svg>
+        </a>
+      </header>
+
+      <!-- Section 1: 안내 문구 / 검색 -->
+      <section class="hospital-section search-section" aria-label="병원 검색">
+        <p class="page-desc">가까운 동물병원을 찾아보세요</p>
+
+        <form class="search-form" action="#" role="search">
+          <div class="search-box" id="searchBox">
+            <!-- 검색 아이콘: 클릭 전/후 이미지 수정 위치 -->
+            <img
+              src="./images/11/Search_off.png"
+              data-default="./images/11/Search_off.png"
+              data-active="./images/11/Search_on.png"
+              alt=""
+              class="search-icon"
+              aria-hidden="true"
+            />
+
+            <span class="search-divider" aria-hidden="true"></span>
+
+            <label for="hospitalSearch" class="blind">
+              병원명 또는 지역 검색
+            </label>
+
+            <input
+              type="search"
+              id="hospitalSearch"
+              name="hospitalSearch"
+              placeholder="병원명 또는 지역 검색"
+              autocomplete="off"
+            />
+          </div>
+        </form>
+      </section>
+
+      <!-- Section 2: 필터 -->
+      <section class="hospital-section filter-section" aria-label="병원 필터">
+        <div class="filter-tabs" role="group" aria-label="병원 상태 필터">
+          <button
+            type="button"
+            class="filter-button is-active"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            전체
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="open"
+            aria-pressed="false"
+          >
+            진료중
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="24h"
+            aria-pressed="false"
+          >
+            24시
+          </button>
+
+          <button
+            type="button"
+            class="filter-button"
+            data-filter="emergency"
+            aria-pressed="false"
+          >
+            응급
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 병원 리스트 -->
+      <section class="hospital-section list-section" aria-label="동물병원 목록">
+        <ul class="hospital-list">
+          <li
+            class="hospital-item"
+            data-status="open"
+            data-24h="false"
+            data-emergency="false"
+          >
+            <article class="hospital-card">
+              <a
+                href="./index12.html?hospital=tuntun"
+                class="hospital-image-link"
+                aria-label="튼튼 동물병원 상세 보기"
+              >
+                <img
+                  src="./images/11/img1.png"
+                  alt="튼튼 동물병원 이미지"
+                  class="hospital-image"
+                />
+              </a>
+
+              <div class="hospital-info">
+                <div class="hospital-title-row">
+                  <h2 class="hospital-name">튼튼 동물병원</h2>
+
+                  <button
+                    type="button"
+                    class="save-button"
+                    aria-label="튼튼 동물병원 저장"
+                  >
+                    <img
+                      src="./images/11/save_off.png"
+                      data-default="./images/11/save_off.png"
+                      data-active="./images/11/save_on.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="hospital-meta">
+                  <span>도보 8분</span>
+                  <span class="status-badge is-open">진료중</span>
+                </div>
+
+                <p class="hospital-address">김포 장기동</p>
+              </div>
+            </article>
+          </li>
+
+          <li
+            class="hospital-item"
+            data-status="open"
+            data-24h="false"
+            data-emergency="false"
+          >
+            <article class="hospital-card">
+              <a
+                href="./index12.html?hospital=fm"
+                class="hospital-image-link"
+                aria-label="FM메디컬센터 상세 보기"
+              >
+                <img
+                  src="./images/11/img2.png"
+                  alt="FM메디컬센터 이미지"
+                  class="hospital-image"
+                />
+              </a>
+
+              <div class="hospital-info">
+                <div class="hospital-title-row">
+                  <h2 class="hospital-name">FM메디컬센터</h2>
+
+                  <button
+                    type="button"
+                    class="save-button"
+                    aria-label="FM메디컬센터 저장"
+                  >
+                    <img
+                      src="./images/11/save_off.png"
+                      data-default="./images/11/save_off.png"
+                      data-active="./images/11/save_on.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="hospital-meta">
+                  <span>도보 15분</span>
+                  <span class="status-badge is-open">진료중</span>
+                </div>
+
+                <p class="hospital-address">김포 장기동</p>
+              </div>
+            </article>
+          </li>
+
+          <li
+            class="hospital-item"
+            data-status="open"
+            data-24h="true"
+            data-emergency="true"
+          >
+            <article class="hospital-card">
+              <a
+                href="./index12.html?hospital=atti"
+                class="hospital-image-link"
+                aria-label="아띠 동물병원 상세 보기"
+              >
+                <img
+                  src="./images/11/img3.png"
+                  alt="아띠 동물병원 이미지"
+                  class="hospital-image"
+                />
+              </a>
+
+              <div class="hospital-info">
+                <div class="hospital-title-row">
+                  <h2 class="hospital-name">아띠 동물병원</h2>
+
+                  <button
+                    type="button"
+                    class="save-button"
+                    aria-label="아띠 동물병원 저장"
+                  >
+                    <img
+                      src="./images/11/save_off.png"
+                      data-default="./images/11/save_off.png"
+                      data-active="./images/11/save_on.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="hospital-meta">
+                  <span>도보 16분</span>
+                  <span class="status-badge is-open">진료중</span>
+                </div>
+
+                <p class="hospital-address">김포 장기동</p>
+              </div>
+            </article>
+          </li>
+
+          <li
+            class="hospital-item"
+            data-status="closed"
+            data-24h="false"
+            data-emergency="false"
+          >
+            <article class="hospital-card">
+              <a
+                href="./index12.html?hospital=momo"
+                class="hospital-image-link"
+                aria-label="모모 동물병원 상세 보기"
+              >
+                <img
+                  src="./images/11/img4.png"
+                  alt="모모 동물병원 이미지"
+                  class="hospital-image"
+                />
+              </a>
+
+              <div class="hospital-info">
+                <div class="hospital-title-row">
+                  <h2 class="hospital-name">모모 동물병원</h2>
+
+                  <button
+                    type="button"
+                    class="save-button"
+                    aria-label="모모 동물병원 저장"
+                  >
+                    <img
+                      src="./images/11/save_off.png"
+                      data-default="./images/11/save_off.png"
+                      data-active="./images/11/save_on.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="hospital-meta">
+                  <span>자차 20분</span>
+                  <span class="status-badge is-closed">진료 종료</span>
+                </div>
+
+                <p class="hospital-address">김포 운양동</p>
+              </div>
+            </article>
+          </li>
+
+          <li
+            class="hospital-item"
+            data-status="closed"
+            data-24h="true"
+            data-emergency="false"
+          >
+            <article class="hospital-card">
+              <a
+                href="./index12.html?hospital=star"
+                class="hospital-image-link"
+                aria-label="스타 동물병원 상세 보기"
+              >
+                <img
+                  src="./images/11/img5.png"
+                  alt="스타 동물병원 이미지"
+                  class="hospital-image"
+                />
+              </a>
+
+              <div class="hospital-info">
+                <div class="hospital-title-row">
+                  <h2 class="hospital-name">스타 동물병원</h2>
+
+                  <button
+                    type="button"
+                    class="save-button"
+                    aria-label="스타 동물병원 저장"
+                  >
+                    <img
+                      src="./images/11/save_off.png"
+                      data-default="./images/11/save_off.png"
+                      data-active="./images/11/save_on.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+
+                <div class="hospital-meta">
+                  <span>자차 20분</span>
+                  <span class="status-badge is-closed">진료 종료</span>
+                </div>
+
+                <p class="hospital-address">김포 운양동</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a href="./index5.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script11.js"></script>
+  </body>
+</html>

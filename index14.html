@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog 설정</title>
+
+    <meta
+      name="description"
+      content="PetLog 앱 설정과 반려동물 프로필 관리 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style14.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 설정 화면">
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-left">
+          <a
+            href="./index5.html"
+            class="back-button"
+            aria-label="홈 화면으로 돌아가기"
+          >
+            <img src="./images/06/icon.png" alt="" aria-hidden="true" />
+          </a>
+
+          <h1 class="page-title">설정</h1>
+        </div>
+      </header>
+
+      <p class="page-desc">보리의 정보와 앱 사용 방식을 관리해보세요</p>
+
+      <!-- Section 1: 프로필 관리 -->
+      <section
+        class="setting-section profile-setting-section"
+        aria-labelledby="profileSettingTitle"
+      >
+        <h2 id="profileSettingTitle" class="setting-title">보리 프로필</h2>
+
+        <div class="profile-preview">
+          <img src="./images/05/img.png" alt="보리 프로필 사진" />
+          <div>
+            <strong id="previewName">보리</strong>
+            <p id="previewInfo">10살 · 페키니즈 · 5.1kg</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <label class="setting-label">
+            이름
+            <input type="text" id="petNameInput" value="보리" />
+          </label>
+
+          <label class="setting-label">
+            나이
+            <input type="text" id="petAgeInput" value="10살" />
+          </label>
+
+          <label class="setting-label">
+            견종
+            <input type="text" id="petBreedInput" value="페키니즈" />
+          </label>
+
+          <label class="setting-label">
+            몸무게
+            <input type="text" id="petWeightInput" value="5.1kg" />
+          </label>
+        </div>
+
+        <button type="button" class="primary-button" id="saveProfileButton">
+          프로필 저장하기
+        </button>
+      </section>
+
+      <!-- Section 2: 알림 설정 -->
+      <section class="setting-section" aria-labelledby="alertSettingTitle">
+        <h2 id="alertSettingTitle" class="setting-title">알림 설정</h2>
+
+        <div class="setting-list">
+          <button
+            type="button"
+            class="toggle-row is-active"
+            data-toggle="routine"
+          >
+            <span>
+              <strong>루틴 알림</strong>
+              <small>식사, 산책, 배변 기록을 알려줘요</small>
+            </span>
+            <em>ON</em>
+          </button>
+
+          <button
+            type="button"
+            class="toggle-row is-active"
+            data-toggle="schedule"
+          >
+            <span>
+              <strong>일정 알림</strong>
+              <small>병원, 약, 목욕 일정을 알려줘요</small>
+            </span>
+            <em>ON</em>
+          </button>
+
+          <button type="button" class="toggle-row" data-toggle="health">
+            <span>
+              <strong>건강 메모 알림</strong>
+              <small>최근 건강 메모를 다시 확인해요</small>
+            </span>
+            <em>OFF</em>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 화면 설정 -->
+      <section class="setting-section" aria-labelledby="themeSettingTitle">
+        <h2 id="themeSettingTitle" class="setting-title">화면 설정</h2>
+
+        <div class="theme-buttons" role="group" aria-label="테마 선택">
+          <button
+            type="button"
+            class="theme-button is-active"
+            data-theme="warm"
+          >
+            따뜻한 모드
+          </button>
+          <button type="button" class="theme-button" data-theme="clean">
+            깔끔한 모드
+          </button>
+        </div>
+
+        <p class="setting-help">
+          현재 프로젝트에서는 설정값을 저장하고, 다음 확장 단계에서 전체 화면
+          테마로 연결하면 돼.
+        </p>
+      </section>
+
+      <!-- Section 4: 데이터 관리 -->
+      <section
+        class="setting-section danger-section"
+        aria-labelledby="dataSettingTitle"
+      >
+        <h2 id="dataSettingTitle" class="setting-title">데이터 관리</h2>
+
+        <p class="setting-help">
+          테스트 중 저장된 컨디션, 프로필, 알림 확인 상태를 초기화할 수 있어.
+        </p>
+
+        <button type="button" class="danger-button" id="resetDataButton">
+          저장 데이터 초기화
+        </button>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a
+            href="./index5.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item"
+            aria-label="병원 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a href="./index16.html" class="tab-item" aria-label="마이 화면으로 이동">
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script14.js"></script>
+  </body>
+</html>

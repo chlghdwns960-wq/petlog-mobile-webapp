@@ -1,0 +1,507 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+:root {
+  --color-text-main: #333333;
+  --color-text-sub: #555555;
+  --color-primary: #febc34;
+  --color-sub: #fff8e8;
+  --color-point: #e58e61;
+  --color-disabled-text: #888888;
+  --color-white: #ffffff;
+  --color-line: #dddddd;
+  --color-card: #fff8e8;
+
+  --header-height: 48px;
+  --nav-height: 70px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    sans-serif;
+  color: var(--color-text-main);
+  background: var(--color-white);
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-point);
+  outline-offset: 3px;
+}
+
+/* 모바일 전용 전체 가로 100% */
+.app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 20px calc(var(--nav-height) + 90px);
+  background: var(--color-white);
+  overflow-x: hidden;
+}
+
+/* 본문 바로가기 */
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 12px;
+  z-index: 999;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--color-text-main);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Header */
+.page-header {
+  width: 100%;
+  height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button {
+  width: 24px;
+  height: 24px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+
+.back-button img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.page-title {
+  color: var(--color-text-main);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+/* Common */
+.schedule-section {
+  width: 100%;
+}
+
+.summary-section {
+  margin-top: 8px;
+}
+
+.page-desc {
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.03em;
+}
+
+/* Summary */
+.summary-cards {
+  margin-top: 16px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.summary-card {
+  min-height: 64px;
+  padding: 0 16px;
+  border-radius: 14px;
+  background: var(--color-card);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.08);
+}
+
+.summary-card.is-active {
+  background: var(--color-primary);
+}
+
+.summary-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+.summary-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.summary-label {
+  color: var(--color-text-main);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.summary-label strong {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Filter */
+.filter-section {
+  margin-top: 16px;
+}
+
+.filter-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.filter-button {
+  height: 28px;
+  border-radius: 999px;
+  background: var(--color-card);
+  color: var(--color-text-main);
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filter-button:hover {
+  transform: translateY(-1px);
+  background: #ffe09a;
+}
+
+.filter-button.is-active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+/* List */
+.list-section {
+  margin-top: 16px;
+}
+
+.schedule-group + .schedule-group {
+  margin-top: 24px;
+}
+
+.schedule-date-title {
+  margin-bottom: 12px;
+  color: var(--color-text-main);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.schedule-item {
+  width: 100%;
+  min-height: 46px;
+  padding: 8px 12px 8px 18px;
+  border-radius: 999px;
+  background: var(--color-card);
+
+  display: grid;
+  grid-template-columns: 76px 1fr auto auto;
+  gap: 8px;
+  align-items: center;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.schedule-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(51, 51, 51, 0.06);
+}
+
+.schedule-item + .schedule-item {
+  margin-top: 10px;
+}
+
+.schedule-time {
+  color: var(--color-text-main);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.schedule-title {
+  color: var(--color-text-main);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  word-break: keep-all;
+}
+
+.status-button {
+  min-width: 52px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #ffe09a;
+  color: var(--color-text-main);
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.status-button:hover {
+  transform: translateY(-1px);
+}
+
+.status-button.is-done {
+  background: var(--color-primary);
+}
+
+.delete-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--color-disabled-text);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.delete-button:hover {
+  color: var(--color-point);
+  background: rgba(229, 142, 97, 0.1);
+  transform: scale(1.04);
+}
+
+.delete-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.empty-message {
+  display: none;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--color-card);
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+}
+
+/* Floating Button */
+.floating-add-button {
+  position: fixed;
+  right: 24px;
+  bottom: calc(var(--nav-height) + 24px);
+  z-index: 90;
+
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 22px rgba(254, 188, 52, 0.36);
+
+  transition:
+    transform 0.24s ease,
+    background-color 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.floating-add-button:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: var(--color-point);
+  box-shadow: 0 12px 26px rgba(229, 142, 97, 0.3);
+}
+
+.floating-add-button:active {
+  transform: scale(0.96);
+}
+
+/* Bottom Fixed Tab Bar */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-height);
+  background: var(--color-white);
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.tab-menu {
+  width: 100%;
+  height: 100%;
+  padding: 7px 10px 5px;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.tab-item {
+  min-width: 0;
+  color: var(--color-disabled-text);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.tab-icon img {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: opacity 0.18s ease;
+}
+
+.icon-on {
+  opacity: 0;
+}
+
+.icon-off {
+  opacity: 1;
+}
+
+.tab-label {
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.18s ease;
+}
+
+.tab-item:hover,
+.tab-item.is-active {
+  color: var(--color-primary);
+}
+
+.tab-item:hover .icon-on,
+.tab-item.is-active .icon-on {
+  opacity: 1;
+}
+
+.tab-item:hover .icon-off,
+.tab-item.is-active .icon-off {
+  opacity: 0;
+}

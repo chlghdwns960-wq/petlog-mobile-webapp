@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PetLog Home</title>
+
+    <meta
+      name="description"
+      content="PetLog 반려동물 홈 대시보드 화면입니다."
+    />
+
+    <link rel="stylesheet" href="./css/style5.css" />
+  </head>
+
+  <body>
+    <a href="#mainContent" class="skip-link">본문 바로가기</a>
+
+    <main id="mainContent" class="app" aria-label="PetLog 홈 화면">
+      <!-- Header: 상단 로고 / 알림 / 설정 -->
+      <header class="home-header">
+        <h1 class="blind">PetLog 홈</h1>
+
+        <a
+          href="./index5.html"
+          class="header-logo"
+          aria-label="PetLog 홈으로 이동"
+        >
+          <img src="./images/05/logo.png" alt="PetLog 로고" />
+        </a>
+
+        <div class="header-actions" aria-label="상단 메뉴">
+          <button
+            type="button"
+            class="header-icon-button notification-button"
+            id="notificationButton"
+            aria-label="알림 보기"
+            aria-haspopup="dialog"
+            aria-controls="notificationSheet"
+          >
+            <img src="./images/05/icon.png" alt="" aria-hidden="true" />
+            <span class="notification-dot" aria-hidden="true"></span>
+          </button>
+
+          <button
+            type="button"
+            class="header-icon-button"
+            id="settingsButton"
+            aria-label="설정 열기"
+          >
+            <img src="./images/05/icon2.png" alt="" aria-hidden="true" />
+          </button>
+        </div>
+      </header>
+
+      <!-- Section 1: 반려동물 프로필 카드 -->
+      <section
+        class="home-section profile-section"
+        aria-labelledby="profileTitle"
+      >
+        <h2 id="profileTitle" class="blind">반려동물 프로필</h2>
+
+        <article class="profile-card">
+          <div class="profile-image-wrap">
+            <img
+              src="./images/05/img.png"
+              alt="보리 프로필 사진"
+              class="profile-image"
+            />
+          </div>
+
+          <div class="profile-info">
+            <div class="profile-name-row">
+              <strong class="profile-name" id="profileName">보리</strong>
+              <img src="./images/05/icon3.png" alt="여아" class="gender-icon" />
+            </div>
+
+            <p class="profile-detail">
+              <span id="profileAge">10살</span> ·
+              <span id="profileBreed">페키니즈</span>
+            </p>
+            <p class="profile-detail">
+              중량 : <span id="profileWeight">5.1kg</span>
+            </p>
+          </div>
+
+          <div class="profile-badges" aria-label="반려동물 상태">
+            <span
+              id="conditionBadge"
+              class="condition-badge"
+              role="button"
+              tabindex="0"
+              aria-haspopup="dialog"
+              aria-controls="conditionSheet"
+            >
+              컨디션 : 기분 좋아요
+            </span>
+            <span class="record-badge">오늘 기록 2/4 완료</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- Section 2: 간편 기록 -->
+      <section class="home-section quick-section" aria-labelledby="quickTitle">
+        <h2 id="quickTitle" class="section-title">간편 기록</h2>
+
+        <div class="quick-card" role="group" aria-label="간편 기록 메뉴">
+          <button
+            type="button"
+            class="quick-item is-checked"
+            data-checked="true"
+            aria-pressed="true"
+          >
+            <span class="quick-icon-wrap">
+              <img src="./images/05/img2.png" alt="" class="quick-icon" />
+              <img
+                src="./images/05/check.png"
+                data-on="./images/05/check.png"
+                data-off="./images/05/none_check.png"
+                alt=""
+                class="quick-check"
+                aria-hidden="true"
+              />
+            </span>
+            <span class="quick-label">식사</span>
+          </button>
+
+          <button
+            type="button"
+            class="quick-item is-checked"
+            data-checked="true"
+            aria-pressed="true"
+          >
+            <span class="quick-icon-wrap">
+              <img src="./images/05/img3.png" alt="" class="quick-icon" />
+              <img
+                src="./images/05/check.png"
+                data-on="./images/05/check.png"
+                data-off="./images/05/none_check.png"
+                alt=""
+                class="quick-check"
+                aria-hidden="true"
+              />
+            </span>
+            <span class="quick-label">물</span>
+          </button>
+
+          <button
+            type="button"
+            class="quick-item"
+            data-checked="false"
+            aria-pressed="false"
+          >
+            <span class="quick-icon-wrap">
+              <img src="./images/05/img4.png" alt="" class="quick-icon" />
+              <img
+                src="./images/05/check.png"
+                data-on="./images/05/check.png"
+                data-off="./images/05/none_check.png"
+                alt=""
+                class="quick-check"
+                aria-hidden="true"
+              />
+            </span>
+            <span class="quick-label">산책</span>
+          </button>
+
+          <button
+            type="button"
+            class="quick-item"
+            data-checked="false"
+            aria-pressed="false"
+          >
+            <span class="quick-icon-wrap">
+              <img src="./images/05/img5.png" alt="" class="quick-icon" />
+              <img
+                src="./images/05/check.png"
+                data-on="./images/05/check.png"
+                data-off="./images/05/none_check.png"
+                alt=""
+                class="quick-check"
+                aria-hidden="true"
+              />
+            </span>
+            <span class="quick-label">배변</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Section 3: 오늘의 일정 -->
+      <section
+        class="home-section schedule-section"
+        aria-labelledby="scheduleTitle"
+      >
+        <div class="section-head">
+          <h2 id="scheduleTitle" class="section-title">오늘의 일정</h2>
+
+          <a
+            href="./index9.html"
+            class="section-more"
+            aria-label="전체 일정 보기"
+          >
+            전체일정 보기
+            <span aria-hidden="true">›</span>
+          </a>
+        </div>
+
+        <ul class="schedule-list">
+          <li class="schedule-item">
+            <time datetime="10:00">10:00</time>
+            <span>동물병원 방문</span>
+          </li>
+
+          <li class="schedule-item">
+            <time datetime="14:30">14:30</time>
+            <span>점심 산책</span>
+          </li>
+
+          <li class="schedule-item">
+            <time datetime="19:00">19:00</time>
+            <span>저녁식사 및 약 챙기기</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: 최근 사진 -->
+      <section class="home-section photo-section" aria-labelledby="photoTitle">
+        <div class="section-head">
+          <h2 id="photoTitle" class="section-title">최근 사진</h2>
+
+          <a
+            href="./index6.html"
+            class="section-more"
+            aria-label="전체 사진 보기"
+          >
+            전체사진 보기
+            <span aria-hidden="true">›</span>
+          </a>
+        </div>
+
+        <div class="photo-grid" aria-label="최근 사진 목록">
+          <img
+            src="./images/05/photo1.png"
+            data-full="./images/05/photo1_full.png"
+            alt="보리 산책 사진"
+          />
+          <img
+            src="./images/05/photo2.png"
+            data-full="./images/05/photo2_full.png"
+            alt="보리 일상 사진"
+          />
+          <img
+            src="./images/05/photo3.png"
+            data-full="./images/05/photo3_full.png"
+            alt="보리 병원 방문 사진"
+          />
+          <img
+            src="./images/05/photo4.png"
+            data-full="./images/05/photo4_full.png"
+            alt="보리 낮잠 사진"
+          />
+          <img
+            src="./images/05/photo5.png"
+            data-full="./images/05/photo5_full.png"
+            alt="보리 아침 식사 사진"
+          />
+          <img
+            src="./images/05/photo6.png"
+            data-full="./images/05/photo6_full.png"
+            alt="보리 공놀이 사진"
+          />
+          <img
+            src="./images/05/photo7.png"
+            data-full="./images/05/photo7_full.png"
+            alt="보리 실내 놀이 사진"
+          />
+          <img
+            src="./images/05/photo8.png"
+            data-full="./images/05/photo8_full.png"
+            alt="보리 샤워 사진"
+          />
+        </div>
+      </section>
+
+      <!-- 컨디션 선택 바텀시트 -->
+      <div class="condition-dim" id="conditionDim" aria-hidden="true"></div>
+
+      <section
+        class="condition-sheet"
+        id="conditionSheet"
+        aria-label="보리 컨디션 선택"
+      >
+        <div class="condition-handle" aria-hidden="true"></div>
+
+        <div class="condition-head">
+          <h2>보리 컨디션</h2>
+          <button type="button" id="conditionCloseButton">닫기</button>
+        </div>
+
+        <div class="condition-options">
+          <button type="button" data-condition="기분 좋아요">
+            <strong>기분 좋아요</strong>
+            <span>평소처럼 잘 먹고 잘 움직여요</span>
+          </button>
+
+          <button type="button" data-condition="밥 잘 먹었어요">
+            <strong>밥 잘 먹었어요</strong>
+            <span>식사 상태가 안정적이에요</span>
+          </button>
+
+          <button type="button" data-condition="산책 필요해요">
+            <strong>산책 필요해요</strong>
+            <span>가볍게 움직이면 좋아요</span>
+          </button>
+
+          <button type="button" data-condition="조금 피곤해요">
+            <strong>조금 피곤해요</strong>
+            <span>오늘은 휴식이 조금 필요해요</span>
+          </button>
+
+          <button type="button" data-condition="병원 체크 필요">
+            <strong>병원 체크 필요</strong>
+            <span>상태를 조금 더 지켜봐야 해요</span>
+          </button>
+        </div>
+      </section>
+      <!-- 사진 확대 보기 모달 -->
+      <div
+        class="photo-viewer-dim"
+        id="photoViewerDim"
+        aria-hidden="true"
+      ></div>
+
+      <section
+        class="photo-viewer"
+        id="photoViewer"
+        aria-label="사진 확대 보기"
+        role="dialog"
+        aria-modal="true"
+        tabindex="-1"
+      >
+        <button
+          type="button"
+          class="photo-viewer-close"
+          id="photoViewerClose"
+          aria-label="사진 확대 보기 닫기"
+        >
+          ×
+        </button>
+
+        <button
+          type="button"
+          class="photo-viewer-nav photo-viewer-prev"
+          id="photoViewerPrev"
+          aria-label="이전 사진 보기"
+        >
+          ‹
+        </button>
+
+        <figure class="photo-viewer-figure">
+          <img id="photoViewerImage" src="" alt="확대된 최근 사진" />
+          <figcaption id="photoViewerCaption">최근 사진</figcaption>
+        </figure>
+
+        <button
+          type="button"
+          class="photo-viewer-nav photo-viewer-next"
+          id="photoViewerNext"
+          aria-label="다음 사진 보기"
+        >
+          ›
+        </button>
+      </section>
+      <!-- 알림 바텀시트 -->
+      <div
+        class="notification-dim"
+        id="notificationDim"
+        aria-hidden="true"
+      ></div>
+
+      <section
+        class="notification-sheet"
+        id="notificationSheet"
+        aria-label="오늘의 알림"
+      >
+        <div class="notification-handle" aria-hidden="true"></div>
+
+        <div class="notification-head">
+          <div>
+            <h2>오늘의 알림</h2>
+            <p>보리에게 필요한 일을 확인해보세요</p>
+          </div>
+
+          <button type="button" id="notificationCloseButton">닫기</button>
+        </div>
+
+        <div class="notification-list" id="notificationList"></div>
+
+        <button
+          type="button"
+          class="notification-clear-button"
+          id="notificationClearButton"
+        >
+          모두 확인했어요
+        </button>
+      </section>
+
+      <!-- Footer: 하단 고정 탭바 -->
+      <footer class="bottom-nav" aria-label="하단 탭 메뉴">
+        <nav class="tab-menu">
+          <a
+            href="./index5.html"
+            class="tab-item is-active"
+            aria-current="page"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/home_off.png" alt="" class="icon-off" />
+              <img src="./images/05/home_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">홈</span>
+          </a>
+
+          <a href="./index6.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/Photo_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Photo_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">사진</span>
+          </a>
+
+          <a href="./index7.html" class="tab-item">
+            <span class="tab-icon">
+              <img src="./images/05/check_off.png" alt="" class="icon-off" />
+              <img src="./images/05/check_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">기록</span>
+          </a>
+
+          <a
+            href="./index11.html"
+            class="tab-item"
+            aria-label="병원 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/Hospital_off.png" alt="" class="icon-off" />
+              <img src="./images/05/Hospital_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">병원</span>
+          </a>
+
+          <a
+            href="./index16.html"
+            class="tab-item"
+            aria-label="마이 화면으로 이동"
+          >
+            <span class="tab-icon">
+              <img src="./images/05/my_off.png" alt="" class="icon-off" />
+              <img src="./images/05/my_on.png" alt="" class="icon-on" />
+            </span>
+            <span class="tab-label">마이</span>
+          </a>
+        </nav>
+      </footer>
+    </main>
+
+    <script src="./script/script5.js"></script>
+  </body>
+</html>
