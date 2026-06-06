@@ -276,6 +276,41 @@ button:focus-visible {
   animation: copyEnter 0.58s ease 0.72s forwards;
 }
 
+.splash-action-section {
+  position: relative;
+  z-index: 2;
+  margin-top: 22px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.app.is-loaded .splash-action-section {
+  animation: copyEnter 0.58s ease 0.92s forwards;
+}
+
+.splash-enter-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 156px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(254, 188, 52, 0.28);
+}
+
+.splash-guide {
+  margin-top: 10px;
+  color: var(--text-sub);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .noscript-message {
   position: relative;
   z-index: 2;

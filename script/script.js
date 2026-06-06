@@ -1,4 +1,4 @@
-const SPLASH_DURATION = 2300;
+const SPLASH_DURATION = 3600;
 
 // 스플래시 화면에서 온보딩 화면으로 이동하는 함수
 function moveToOnboarding() {

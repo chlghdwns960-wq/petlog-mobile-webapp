@@ -27,9 +27,21 @@ https://chlghdwns960-wq.github.io/ai/Exam
 ## Main Files
 
 - `index.html`
+- `index2.html` - 온보딩
+- `index5.html` - 홈/기록 요약
+- `index6.html` - 사진 아카이브
+- `index7.html` - 기록 상세
+- `index9.html` - 일정 목록
+- `index11.html` - 병원 리스트
+- `index12.html` - 병원 상세
+- `index13.html` - 병원 지도
 - `css/`
 - `script/`
 - `images/`
+
+## Screen Flow
+
+`Splash` → `Onboarding` → `Login` → `Home` → `Record / Photo / Schedule / Hospital / My Page`
 
 ## Portfolio Note
 
