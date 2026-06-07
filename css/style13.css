@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+﻿@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 
 :root {
   --color-text-main: #333333;
@@ -661,4 +661,79 @@ input:focus-visible {
 .pagination-button:disabled {
   opacity: 0.35;
   cursor: not-allowed;
+}
+
+/* =========================================================
+  Mobile viewport safety polish
+========================================================= */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+  touch-action: manipulation;
+}
+
+.app,
+.screen,
+.page,
+.mobile-frame,
+.bottom-nav,
+.global-nav {
+  max-width: 430px;
+}
+
+.app,
+.screen,
+.page,
+.mobile-frame {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@supports (min-height: 100dvh) {
+  .app,
+  .screen,
+  .page,
+  .mobile-frame {
+    min-height: 100dvh;
+  }
+}
+
+@media (max-width: 380px) {
+  .app,
+  .screen,
+  .page {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+
+  .bottom-nav,
+  .global-nav {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
 }
